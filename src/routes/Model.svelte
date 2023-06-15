@@ -50,6 +50,15 @@
     camera.position.z = 15;
     camera.position.y = -1;
     camera.position.x = -1;
+    // I need more light to the scene but in different positions
+    const light6 = new THREE.PointLight(0xffffff, 1, 100);
+    light6.position.set(-20, -20, 20);
+    scene.add(light6);
+    // I need more light to the scene but in different positions
+    const light7 = new THREE.PointLight(0xffffff, 1, 100);
+    light7.position.set(20, -20, -20);
+    scene.add(light7);
+    
     // Inicia la animación en bucle
     renderer.setAnimationLoop( function () {
       //animate();
