@@ -1,11 +1,11 @@
 <script>
   import * as THREE from 'three';
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-  import { AnimationMixer } from 'three';
+  //import { AnimationMixer } from 'three';
   import { onMount, onDestroy } from 'svelte';
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-  let scene, camera, renderer, group, controls, mixer;
+  let scene, camera, renderer, group, controls;//, mixer;
   
   function init(){
     scene = new THREE.Scene();
@@ -21,11 +21,11 @@
   controls.minDistance = 1;
   controls.maxDistance = 50;
   const gltfLoader = new GLTFLoader();
-  gltfLoader.load('/models/cupula.glb', (gltf) => {
+  gltfLoader.load('/models/1-1-dicloroeteno.glb', (gltf) => {
     const { scene: gltfScene, animations } = gltf;
-    mixer = new AnimationMixer(gltfScene);
-    console.log(animations);
-    mixer.clipAction(animations[2]).play();
+    //mixer = new AnimationMixer(gltfScene);
+    //console.log(animations);
+    //mixer.clipAction(animations[2]).play();
     group = new THREE.Group();
     group.add(gltfScene);
     scene.add(group);
@@ -52,19 +52,19 @@
     camera.position.x = -1;
     // Inicia la animación en bucle
     renderer.setAnimationLoop( function () {
-      animate();
+      //animate();
       renderer.render(scene, camera);
     } );
     
   });
 }
 
-function animate() {
+/*function animate() {
   // Actualizar la animación si está disponible
   if (mixer) {
     mixer.update(0.01);
   }
-}
+}*/
 
 onMount(() => {
   init();
