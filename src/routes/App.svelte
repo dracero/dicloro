@@ -60,6 +60,14 @@
     //I need to add more light to the scene but in different positions
     const light5 = new THREE.PointLight(0xffffff, 1, 100);
     light5.position.set(20, 20, -20);
+    //I need a HemisphereLight to add more light to the scene
+    const light6 = new THREE.HemisphereLight(0xffffff, 1, 100);
+    light6.position.set(20, 20, -20);
+    scene.add(light6);
+    //add directional light
+    const light7 = new THREE.DirectionalLight(0xffffff, 1, 100);
+    light7.position.set(20, 20, -20);
+    scene.add(light7);
   }
   function animate() {
     requestAnimationFrame(animate);
